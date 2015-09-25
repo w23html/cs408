@@ -26,10 +26,9 @@
         android:layout_height="wrap_content"
         android:text="@string/button_go"
         android:id="@+id/button_go"
-        android:center_verticle="true"
         android:gravity="center"
 
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="200dp" />
 
 </LinearLayout>
