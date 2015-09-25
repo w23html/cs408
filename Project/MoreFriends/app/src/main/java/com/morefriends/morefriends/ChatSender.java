@@ -1,4 +1,4 @@
-package com.example.clevo.fangchat;
+package com.morefriends.morefriends;
 
 import android.app.Activity;
 import android.os.Bundle;
