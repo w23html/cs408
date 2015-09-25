@@ -44,7 +44,7 @@
             android:layout_alignBottom="@+id/chatText"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:background="#ff6493e6" />
+            android:background="@color/primary_light" />
 
     </LinearLayout>
 

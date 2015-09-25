@@ -1,10 +1,8 @@
 package com.morefriends.morefriends;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -44,7 +42,7 @@ public class LoginActivity extends ActionBarActivity {
             Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (e.compareTo("jiaping@google.com") == 0 && p.compareTo("kaijun") == 0) {
+        if (e.compareTo("fang") == 0 && p.compareTo("chen") == 0) {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }

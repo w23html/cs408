@@ -1,8 +1,5 @@
 package com.morefriends.morefriends;
 
-/**
- * Created by Cathy on 9/25/15.
- */
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

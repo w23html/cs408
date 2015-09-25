@@ -8,8 +8,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:background="@color/lightblue"
-        android:textColor="#ffffffff"
+        android:background="@color/primary"
+        android:textColor="@color/icons"
         android:text="Create Account"
         android:fontFamily="sans-serif-medium"
         android:textSize="20sp"
@@ -23,7 +23,7 @@
         android:fontFamily="sans-serif-medium"
         android:text=""
         android:textSize="12sp"
-        android:textColor="#aaaaaa"/>
+        android:textColor="@color/divider"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         android:fontFamily="sans-serif-medium"
         android:text=""
         android:textSize="12sp"
-        android:textColor="#aaaaaa"/>
+        android:textColor="@color/divider"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -91,22 +91,21 @@
         />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="end"
         android:layout_margin="10dp"
         android:weightSum="1">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/create_account"
             android:clickable="true"
-            android:background="@color/lightblue"
             android:paddingTop="10dp"
-            android:paddingLeft="125dp"
-            android:paddingRight="125dp"
+            android:gravity="center"
+            android:layout_gravity="center"
             android:paddingBottom="15dp"
             android:textColor="#ffffff"
             android:fontFamily="sans-serif-medium"
