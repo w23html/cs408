@@ -36,7 +36,8 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return PageFragment.create(position + 1);
+            if (position == 0) PageFragment.create(position + 1);
+            return new ChatList();
         }
 
         @Override
