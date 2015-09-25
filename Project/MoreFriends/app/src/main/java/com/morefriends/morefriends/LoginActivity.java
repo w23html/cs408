@@ -13,6 +13,7 @@ public class LoginActivity extends ActionBarActivity {
 
     private AutoCompleteTextView email;
     private EditText password;
+    private final int SIGNUP = 33333;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(i);
+                startActivityForResult(i, SIGNUP);
             }
         });
     }
@@ -45,6 +46,21 @@ public class LoginActivity extends ActionBarActivity {
         if (e.compareTo("fang") == 0 && p.compareTo("chen") == 0) {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+            finish();
+        } else {
+            Toast.makeText(this, "Invalid Login parameters", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == SIGNUP) {
+                Intent i = new Intent(this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
         }
     }
 
