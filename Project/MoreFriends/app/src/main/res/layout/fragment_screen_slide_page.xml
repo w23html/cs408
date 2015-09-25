@@ -7,6 +7,10 @@
     android:gravity="center">
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"></RelativeLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
