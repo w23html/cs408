@@ -33,7 +33,7 @@
                 android:id="@+id/imageView"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/logo"
-                android:src="#000" />
+                android:src="@drawable/fang" />
 
             <LinearLayout android:id="@+id/plus_sign_out_buttons"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
