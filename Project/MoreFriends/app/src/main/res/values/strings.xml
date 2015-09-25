@@ -10,4 +10,6 @@
     <string name="create">Create</string>
     <string name="Nickname">Nickname</string>
     <string name="create_account">Create Account</string>
+    <string name="text">Hi Lolicon Jay!\n</string>
+    <string name="buttonText">Send</string>
 </resources>
