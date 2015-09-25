@@ -24,6 +24,10 @@
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up" >
         </activity>
+        <activity
+            android:name=".ChatSender"
+            android:label="ChatSender" >
+        </activity>
     </application>
 
 </manifest>

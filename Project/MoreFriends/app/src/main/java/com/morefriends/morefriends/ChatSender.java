@@ -17,7 +17,7 @@ public class ChatSender extends Activity {
     @Override public void onCreate(Bundle savedInstanceState) {
         //Log.d(TAG, "CREATED CHATSENDER");
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.chat);
 
     }
     public void startListener(View v){
