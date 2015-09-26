@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 public class MainActivity extends FragmentActivity {
@@ -69,6 +70,12 @@ public class MainActivity extends FragmentActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_screen_slide_page, container, false);
+            view.findViewById(R.id.button_go).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getActivity(), "clicked", Toast.LENGTH_SHORT).show();
+                }
+            });
             //TextView textView = (TextView) view;
             //textView.setText("Fragment #" + mPage);
             return view;
@@ -103,4 +110,6 @@ public class MainActivity extends FragmentActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

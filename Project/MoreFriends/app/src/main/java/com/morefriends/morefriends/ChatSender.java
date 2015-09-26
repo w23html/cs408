@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChatSender extends Activity {
     private static final String TAG = ChatSender.class.getSimpleName();
@@ -18,16 +19,18 @@ public class ChatSender extends Activity {
         //Log.d(TAG, "CREATED CHATSENDER");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat);
+        startListener();
 
     }
-    public void startListener(View v){
-        final EditText chatMessage = (EditText) v.findViewById(R.id.chatTextField);
-        final TextView message = (TextView) v.findViewById(R.id.textOutput2);
+    public void startListener(){
+        final EditText chatMessage = (EditText) findViewById(R.id.chatTextField);
+        final TextView message = (TextView) findViewById(R.id.textOutput2);
         //final TextView messageHistory = (TextView) findViewById(R.id.textOutput);
-        Button send = (Button) v.findViewById(R.id.buttonSend);
+        Button send = (Button) findViewById(R.id.buttonSend);
         //View view = findViewById(android.R.id.content);
         send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Toast.makeText(ChatSender.this, "JASDS", Toast.LENGTH_SHORT).show();
                 msg  = chatMessage.getText().toString();
                 appendToMessageHistory("You", msg, message);
                 Log.d(TAG, "Sent message: " + msg);

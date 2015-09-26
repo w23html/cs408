@@ -13,6 +13,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="@string/title_activity_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +28,10 @@
         <activity
             android:name=".ChatSender"
             android:label="ChatSender" >
+        </activity>
+        <activity
+            android:name=".MainPage"
+            android:label="MainPage" >
         </activity>
     </application>
 

@@ -12,7 +12,7 @@
         android:text="@string/button_go"
         android:id="@+id/button_go"
         android:gravity="center"
-
+        android:clickable="true"
         android:layout_gravity="center"
         android:layout_marginTop="200dp" />
 
