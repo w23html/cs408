@@ -28,10 +28,6 @@
             android:name=".ChatSender"
             android:label="ChatSender" >
         </activity>
-        <activity
-            android:name=".ForgetPasswordActivity"
-            android:label="@string/action_reset" >
-        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,84 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_keyboard_backspace_black_24dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:id="@+id/button" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_vertical_margin"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:id="@+id/textView" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button2"
+                android:padding="@dimen/activity_vertical_margin"
+                android:src="@drawable/ic_filter_list_black_24dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_alignParentRight="true"/>
+        </LinearLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="165dp"
+            android:layout_height="199dp"
+            android:src="@drawable/anon"
+            android:layout_gravity="center"
+            android:id="@+id/anon"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="This is a gay."
+            android:layout_margin="10dp"
+            android:textSize="17dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="The fc's phone."
+            android:layout_margin="10dp"
+            android:textSize="17dp"/>
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="The introduction of fc"
+            android:layout_margin="10dp"
+            android:textSize="17dp"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Start Fang Chat"
+            android:background="@drawable/blue_button"
+            />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/green_button"
+            android:text="Add As Friend"
+            />
+</LinearLayout>

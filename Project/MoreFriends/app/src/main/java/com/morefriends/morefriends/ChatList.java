@@ -33,7 +33,7 @@ public class ChatList extends Fragment {
         View root = inflater.inflate(R.layout.fragment_chat_list, container, false);
         ListView lv = (ListView) root.findViewById(R.id.list);
         List<Contact> list = new LinkedList<>();
-        list.add(new Contact("Jiaping", "I love 408", "9/25/2015"));
+        list.add(new Contact("Jiapinaaaaag", "I love 408", "9/25/2015"));
         list.add(new Contact("Jiaping", "I love 307", "9/25/2015"));
         list.add(new Contact("Jiaping", "I love 381", "9/25/2015"));
         ListAdapter la = new ListAdapter(list);
