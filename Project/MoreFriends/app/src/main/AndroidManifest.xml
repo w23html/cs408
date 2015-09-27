@@ -28,6 +28,10 @@
             android:name=".ChatSender"
             android:label="ChatSender" >
         </activity>
+        <activity
+            android:name=".ForgetPasswordActivity"
+            android:label="ForgetPassword" >
+        </activity>
     </application>
 
 </manifest>
