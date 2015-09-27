@@ -19,7 +19,7 @@ public class Contact {
         this.name = name;
     }
 
-    public void setLastMessage(String date) {
+    public void setLastMessage(String lastMessage) {
         this.lastMessage = lastMessage;
     }
 
