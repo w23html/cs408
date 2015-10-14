@@ -15,7 +15,7 @@
                 android:padding="@dimen/activity_horizontal_margin"
                 android:src="@drawable/ic_keyboard_backspace_black_24dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:id="@+id/button" />
+                android:id="@+id/back_button" />
 
             <TextView
                 android:layout_width="0dp"
@@ -30,7 +30,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"
+                android:id="@+id/list_button"
                 android:padding="@dimen/activity_vertical_margin"
                 android:src="@drawable/ic_filter_list_black_24dp"
                 android:background="?android:attr/selectableItemBackground"
@@ -73,6 +73,7 @@
             android:text="Start Fang Chat"
             android:textColor="#FFFFFF"
             android:background="@drawable/blue_button"
+            android:id="@+id/start_chat_button"
             android:layout_margin="10px"
             />
         <Button
@@ -81,6 +82,7 @@
             android:layout_gravity="center"
             android:textColor="#FFFFFF"
             android:background="@drawable/green_button"
+            android:id="@+id/add_friend_button"
             android:text="Add As Friend"
             android:layout_margin="10px"
             />

@@ -2,6 +2,7 @@ package com.morefriends.morefriends;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -14,6 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Space;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,11 +34,22 @@ public class MainPage extends Activity {
        // setContentView(dv);
         setContentView(R.layout.activity_main_page);
         iv = (CircleImageView) findViewById(R.id.anon);
-        //addListenerOnImage();
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        // addListenerOnImage();
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+        findViewById(R.id.start_chat_button).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(MainPage.this, ChatSender.class);
+                startActivity(i);
+            }
+        });
+        findViewById(R.id.add_friend_button).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Suppose to add the friend into the friend list
             }
         });
     }
