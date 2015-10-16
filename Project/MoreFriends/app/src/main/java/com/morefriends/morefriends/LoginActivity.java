@@ -1,5 +1,6 @@
 package com.morefriends.morefriends;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -59,9 +60,15 @@ public class LoginActivity extends ActionBarActivity {
             Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
             return;
         }
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setIndeterminate(true);
+        dialog.setCancelable(false);
+        dialog.setMessage("Logging in...");
+        dialog.show();
         ParseUser.logInInBackground(e, p, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
+                dialog.dismiss();
                 if (user != null) {
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);

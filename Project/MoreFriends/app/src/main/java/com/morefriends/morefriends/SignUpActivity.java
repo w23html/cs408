@@ -1,5 +1,6 @@
 package com.morefriends.morefriends;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -61,9 +62,16 @@ public class SignUpActivity extends ActionBarActivity {
                 user.setEmail(em);
                 user.put("nickname", nn);
                 user.setPassword(pw);
+                // add button click on drawer, forgot password
+                final ProgressDialog dialog = new ProgressDialog(SignUpActivity.this);
+                dialog.setIndeterminate(true);
+                dialog.setCancelable(false);
+                dialog.setMessage("Signing up...");
+                dialog.show();
                 user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(com.parse.ParseException e) {
+                        dialog.dismiss();
                         if (e == null) {
                             Toast.makeText(getApplicationContext(), "Sign Up Successfully, Please log in", Toast.LENGTH_LONG).show();
                             setResult(RESULT_OK);
