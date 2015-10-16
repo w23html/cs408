@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Space;
+import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -32,6 +33,15 @@ public class MainPage extends Activity {
         super.onCreate(savedInstanceState);
         DrawingView dv = new DrawingView(this);
        // setContentView(dv);
+
+        Bundle b = getIntent().getExtras();
+        if (b != null) {
+            String n = b.getString("name");
+            if (n != null) {
+                TextView tv = (TextView) findViewById(R.id.friend_name);
+                tv.setText(n);
+            }
+        }
         setContentView(R.layout.activity_main_page);
         iv = (CircleImageView) findViewById(R.id.anon);
         // addListenerOnImage();

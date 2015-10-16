@@ -51,6 +51,7 @@
             android:layout_gravity="center"
             android:text="This is a gay."
             android:layout_margin="10dp"
+            android:id="@+id/friend_name"
             android:textSize="17dp"/>
         <TextView
             android:layout_width="fill_parent"
