@@ -18,8 +18,6 @@ public class ScreenSlidePageFragment extends Fragment {
         rootView.findViewById(R.id.button_go).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), FriendList.class);
-                startActivity(i);
 
             }
         });

@@ -1,5 +1,6 @@
 package com.morefriends.morefriends;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -20,6 +21,13 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter());
+        findViewById(R.id.button_profile).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, FriendList.class);
+                startActivity(i);
+            }
+        });
     }
 
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {

@@ -31,6 +31,7 @@ public class MainPage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_page);
         DrawingView dv = new DrawingView(this);
        // setContentView(dv);
 
@@ -42,7 +43,6 @@ public class MainPage extends Activity {
                 tv.setText(n);
             }
         }
-        setContentView(R.layout.activity_main_page);
         iv = (CircleImageView) findViewById(R.id.anon);
         // addListenerOnImage();
         findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
