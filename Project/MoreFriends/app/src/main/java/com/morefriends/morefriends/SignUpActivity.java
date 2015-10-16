@@ -57,23 +57,23 @@ public class SignUpActivity extends ActionBarActivity {
                     return;
                 }
                 ParseUser user = new ParseUser();
-                user.setUsername(nn);
+                user.setUsername(em);
                 user.setEmail(em);
+                user.put("nickname", nn);
                 user.setPassword(pw);
                 user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(com.parse.ParseException e) {
                         if (e == null) {
                             Toast.makeText(getApplicationContext(), "Sign Up Successfully, Please log in", Toast.LENGTH_LONG).show();
+                            setResult(RESULT_OK);
+                            finish();
                         } else {
-                            Toast.makeText(getApplicationContext(), "Error: Please Resign Up", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
 
                 });
-
-                setResult(RESULT_OK);
-                finish();
             }
         });
     }

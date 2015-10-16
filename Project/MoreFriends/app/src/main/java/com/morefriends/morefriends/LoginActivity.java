@@ -23,6 +23,11 @@ public class LoginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        if (ParseUser.getCurrentUser() != null) {
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+            finish();
+        }
         email = (AutoCompleteTextView) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         findViewById(R.id.email_sign_in_button).setOnClickListener(new View.OnClickListener() {
@@ -68,7 +73,7 @@ public class LoginActivity extends ActionBarActivity {
                 else{
                     Toast.makeText(
                             getApplicationContext(),
-                            "Not registered yet, please signup",
+                            e.getMessage(),
                             Toast.LENGTH_LONG).show();
                 }
             }
