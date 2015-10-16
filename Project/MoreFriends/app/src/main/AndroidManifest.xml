@@ -36,6 +36,10 @@
             android:name=".ForgetPasswordActivity"
             android:label="ForgetPassword" >
         </activity>
+        <activity
+            android:name=".FriendList"
+            android:label="@string/title_activity_friend_list" >
+        </activity>
     </application>
 
 </manifest>
