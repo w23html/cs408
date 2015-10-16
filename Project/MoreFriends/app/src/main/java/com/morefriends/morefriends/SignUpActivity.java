@@ -11,6 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+
+import java.text.ParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,6 +56,22 @@ public class SignUpActivity extends ActionBarActivity {
                     Toast.makeText(SignUpActivity.this, "Password should be at least 6 characters long.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                ParseUser user = new ParseUser();
+                user.setUsername(nn);
+                user.setEmail(em);
+                user.setPassword(pw);
+                user.signUpInBackground(new SignUpCallback() {
+                    @Override
+                    public void done(com.parse.ParseException e) {
+                        if (e == null) {
+                            Toast.makeText(getApplicationContext(), "Sign Up Successfully, Please log in", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Error: Please Resign Up", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                });
+
                 setResult(RESULT_OK);
                 finish();
             }

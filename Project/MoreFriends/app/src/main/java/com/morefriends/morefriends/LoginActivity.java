@@ -8,6 +8,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+
 
 public class LoginActivity extends ActionBarActivity {
 
@@ -50,13 +54,27 @@ public class LoginActivity extends ActionBarActivity {
             Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (e.compareTo("fang") == 0 && p.compareTo("chen") == 0) {
-            Intent i = new Intent(this, MainActivity.class);
-            startActivity(i);
-            finish();
-        } else {
-            Toast.makeText(this, "Invalid Login parameters", Toast.LENGTH_SHORT).show();
-        }
+        ParseUser.logInInBackground(e, p, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                if (user != null) {
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(i);
+                    Toast.makeText(getApplicationContext(),
+                            "Successfully Logged in",
+                            Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                else{
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Not registered yet, please signup",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
     }
 
     @Override
