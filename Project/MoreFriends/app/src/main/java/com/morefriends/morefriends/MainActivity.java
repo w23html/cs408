@@ -6,19 +6,61 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.parse.LogOutCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 
 
 public class MainActivity extends FragmentActivity {
 
-    @Override
+
+    private DrawerLayout mDrawerLayout;
+    private ListView mLeftDrawer;
+    private String[] menuItems = new String[]{"My Profile", "Log Out"};
+
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+         mLeftDrawer = (ListView) findViewById(R.id.left_drawer);
+
+         mLeftDrawer.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuItems));
+         mLeftDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+             @Override
+             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+
+                } else {
+                    ParseUser.getCurrentUser().logOutInBackground(new LogOutCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                                startActivity(i);
+                                finish();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Connection failed, try again later.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+             }
+         });
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter());
         findViewById(R.id.button_profile).setOnClickListener(new View.OnClickListener() {
