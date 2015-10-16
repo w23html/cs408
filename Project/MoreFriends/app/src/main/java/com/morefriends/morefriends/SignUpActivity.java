@@ -62,7 +62,6 @@ public class SignUpActivity extends ActionBarActivity {
                 user.setEmail(em);
                 user.put("nickname", nn);
                 user.setPassword(pw);
-                //  forgot password
                 final ProgressDialog dialog = new ProgressDialog(SignUpActivity.this);
                 dialog.setIndeterminate(true);
                 dialog.setCancelable(false);

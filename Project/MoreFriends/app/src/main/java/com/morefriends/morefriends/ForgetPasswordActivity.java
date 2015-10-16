@@ -7,6 +7,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseException;
+import com.parse.ParseUser;
+
 public class ForgetPasswordActivity extends Activity {
     private EditText email;
     private TextView forgetPass;
@@ -24,7 +27,18 @@ public class ForgetPasswordActivity extends Activity {
             public void onClick(View v) {
                 String em = email.getText().toString();
                 Toast.makeText(ForgetPasswordActivity.this, em, Toast.LENGTH_SHORT).show();
-                // TODO
+                em = em.trim();
+                try {
+                    ParseUser.requestPasswordReset(em);
+                    Toast.makeText(ForgetPasswordActivity.this, "Instructions to reset password has been sent to provided email.", Toast.LENGTH_SHORT).show();
+                } catch (ParseException e) {
+                    if (e.getCode() == 205) {
+                        Toast.makeText(ForgetPasswordActivity.this, "Email address does not exist.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(ForgetPasswordActivity.this, "Connection failed. Try again later.", Toast.LENGTH_SHORT).show();
+                    }
+                    e.printStackTrace();
+                }
             }
         });
 
