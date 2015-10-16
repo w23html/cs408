@@ -20,8 +20,10 @@ public class FriendList extends ActionBarActivity {
 
         userlist = new ArrayList<User>();
         User user = new User("Tan");
+        userlist.add(user);
         FriendListAdapter fla = new FriendListAdapter(this, userlist);
         ListView lv = (ListView) findViewById(R.id.list);
+        lv.setAdapter(fla);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -55,8 +55,13 @@ public class FriendListAdapter extends BaseAdapter {
             vh = (ViewHolder) convert.getTag();
         }
         User currentUser = getItem(pos);
-        Bitmap bm = BitmapFactory.decodeByteArray(currentUser.getImage(), 0, currentUser.getImage().length);
-        vh.avater.setImageBitmap(bm);
+        Bitmap bm;
+        if (currentUser.getImage() == null) {
+
+        } else {
+            bm = BitmapFactory.decodeByteArray(currentUser.getImage(), 0, currentUser.getImage().length);
+            vh.avater.setImageBitmap(bm);
+        }
         vh.name.setText(currentUser.getName());
         return convert;
     }

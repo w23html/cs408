@@ -40,6 +40,10 @@
             android:name=".FriendList"
             android:label="@string/title_activity_friend_list" >
         </activity>
+        <activity
+            android:name=".MainPage">
+
+        </activity>
     </application>
 
 </manifest>
