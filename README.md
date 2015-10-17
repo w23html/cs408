@@ -10,7 +10,7 @@ CS408 Team 4
 
 ### Member: 
 + Aaron Ho<br />
-+ Jiaping Qi<br />
++ [Jiaping Qi<br />](web.ics.purdue.edu/~qi33/inner.html)
 + Kaijun He<br />
 + Lingyu Kong<br />
 + Qi Zhang<br />
