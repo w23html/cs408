@@ -4,12 +4,16 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
+        android:name=".FangChat"
         android:allowBackup="true"
         android:icon="@drawable/fang"
         android:label="@string/app_name"
-        android:name=".FangChat"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
@@ -40,9 +44,27 @@
             android:name=".FriendList"
             android:label="@string/title_activity_friend_list" >
         </activity>
+        <activity android:name=".MainPage" >
+        </activity>
         <activity
-            android:name=".MainPage">
-
+            android:name=".PersonalInfo"
+            android:label="@string/title_activity_personal_info" >
+        </activity>
+        <activity
+            android:name=".EditPersonalInfo"
+            android:label="@string/title_activity_edit_personal_info" >
+        </activity>
+        <activity
+            android:name=".FullScreenImage"
+            android:label="@string/title_activity_full_screen_image" >
+        </activity>
+        <activity
+            android:name=".FullScreenImageActivity"
+            android:label="@string/title_activity_full_screen_image" >
+        </activity>
+        <activity
+            android:name=".CropImageActivity"
+            android:label="@string/title_activity_crop_image" >
         </activity>
     </application>
 

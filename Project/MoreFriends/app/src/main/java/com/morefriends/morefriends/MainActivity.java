@@ -43,22 +43,23 @@ public class MainActivity extends FragmentActivity {
          mLeftDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
              @Override
              public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-
-                } else {
-                    ParseUser.getCurrentUser().logOutInBackground(new LogOutCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if (e == null) {
-                                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                                startActivity(i);
-                                finish();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Connection failed, try again later.", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
+                 if (position == 0) {
+                     Intent i = new Intent(MainActivity.this, PersonalInfo.class);
+                     startActivity(i);
+                 } else {
+                     ParseUser.getCurrentUser().logOutInBackground(new LogOutCallback() {
+                         @Override
+                         public void done(ParseException e) {
+                             if (e == null) {
+                                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                                 startActivity(i);
+                                 finish();
+                             } else {
+                                 Toast.makeText(MainActivity.this, "Connection failed, try again later.", Toast.LENGTH_SHORT).show();
+                             }
+                         }
+                     });
+                 }
              }
          });
         findViewById(R.id.button_menu).setOnClickListener(new View.OnClickListener() {
