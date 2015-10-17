@@ -6,9 +6,9 @@ CS408 Team 4
 <br />
 
 ## Group Members
-Leader: 
+### Leader: 
 + Kean Jye Tan<br />
-Member: 
+### Member: 
 + Aaron Ho<br />
 + Jiaping Qi<br />
 + Kaijun He<br />
