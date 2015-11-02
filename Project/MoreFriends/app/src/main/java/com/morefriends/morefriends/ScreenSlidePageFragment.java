@@ -30,7 +30,7 @@ public class ScreenSlidePageFragment extends Fragment {
                     int total = objects.size();
                     Random ran = new Random();
                     int idx = ran.nextInt(total);
-                    Intent i = new Intent(getActivity(), MainPage.class).putExtra("name", objects.get(idx).getUsername());
+                    Intent i = new Intent(getActivity(), MainPage.class).putExtra("name", objects.get(idx).getObjectId());
                     startActivity(i);
                     dialog.dismiss();
                 } else {
