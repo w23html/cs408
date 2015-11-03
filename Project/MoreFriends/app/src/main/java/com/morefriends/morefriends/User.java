@@ -9,6 +9,15 @@ public class User {
     String description = null;
     int age = 0;
     byte[] image = null;
+    String objectId = null;
+
+    public void setObjectId(String id) {
+        objectId = id;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
 
     public User(String name) {
         this.name = name;

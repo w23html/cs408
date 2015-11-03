@@ -49,7 +49,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="This is a gay."
+            android:text="name"
             android:layout_margin="10dp"
             android:id="@+id/friend_name"
             android:textSize="17dp"/>
@@ -57,14 +57,16 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="The fc's phone."
+            android:text="email"
+            android:id="@+id/email_friend"
             android:layout_margin="10dp"
             android:textSize="17dp"/>
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="The introduction of fc"
+            android:text="intro"
+            android:id="@+id/intro_friend"
             android:layout_margin="10dp"
             android:textSize="17dp"/>
         <Button

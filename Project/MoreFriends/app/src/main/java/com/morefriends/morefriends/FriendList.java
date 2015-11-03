@@ -62,6 +62,7 @@ public class FriendList extends ActionBarActivity {
                                             u.setDescription(pu.getString("description"));
                                             u.setEmail(pu.getEmail());
                                             u.setImage(pu.getBytes("image"));
+                                            u.setObjectId(pu.getObjectId());
                                             userlist.add(u);
                                         }
                                         ListView lv = (ListView) findViewById(R.id.list);
@@ -70,7 +71,7 @@ public class FriendList extends ActionBarActivity {
                                         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                             @Override
                                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                                Intent i = new Intent(FriendList.this, MainPage.class).putExtra("name", userlist.get(position).getName());
+                                                Intent i = new Intent(FriendList.this, MainPage.class).putExtra("name", userlist.get(position).getObjectId());
                                                 startActivity(i);
                                             }
                                         });
