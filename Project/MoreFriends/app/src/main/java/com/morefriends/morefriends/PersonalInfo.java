@@ -3,31 +3,21 @@ package com.morefriends.morefriends;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 
 public class PersonalInfo extends ActionBarActivity {
@@ -144,14 +134,37 @@ public class PersonalInfo extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //call editProfile
-                findViewById(R.id.edit_profile).setClickable(false);
-                findViewById(R.id.edit_profile).setEnabled(false);
+                //findViewById(R.id.edit_profile).setClickable(true);
+                //findViewById(R.id.edit_profile).setEnabled(false);
                 Intent i = new Intent(PersonalInfo.this, EditPersonalInfo.class);
                 startActivityForResult(i, 2222);
                 overridePendingTransition(R.anim.right_to_left, 0);
             }
         });
 
+    }
+    public void onResume() {
+        super.onResume();
+        Toast.makeText(PersonalInfo.this, "onResume", Toast.LENGTH_SHORT).show();
+        findViewById(R.id.back_button_profile).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        findViewById(R.id.edit_profile).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PersonalInfo.this, "Resume", Toast.LENGTH_SHORT).show();
+                //call editProfile
+                //findViewById(R.id.edit_profile).setClickable(false);
+                //findViewById(R.id.edit_profile).setEnabled(false);
+                Intent i = new Intent(PersonalInfo.this, EditPersonalInfo.class);
+                startActivityForResult(i, 2222);
+                overridePendingTransition(R.anim.right_to_left, 0);
+            }
+        });
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
