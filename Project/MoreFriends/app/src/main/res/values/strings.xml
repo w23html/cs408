@@ -113,4 +113,8 @@
     <string name="title_activity_edit_personal_info2">EditPersonalInfo2</string>
     <string name="title_activity_full_screen_image">FullScreenImage</string>
     <string name="title_activity_crop_image">CropImageActivity</string>
+    <string name="message_hint">Write something...</string>
+    <string name="send">Send</string>
+    <string name="profile_other">Friend Avatar</string>
+    <string name="profile_me">My Avatar</string>
 </resources>

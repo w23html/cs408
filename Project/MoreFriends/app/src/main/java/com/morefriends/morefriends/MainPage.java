@@ -123,7 +123,7 @@ public class MainPage extends Activity {
         });
         findViewById(R.id.start_chat_button).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(MainPage.this, ChatSender.class);
+                Intent i = new Intent(MainPage.this, ChatRoom.class);
                 startActivity(i);
             }
         });

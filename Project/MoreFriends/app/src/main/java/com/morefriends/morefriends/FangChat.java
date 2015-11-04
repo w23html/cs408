@@ -14,6 +14,7 @@ public class FangChat extends Application {
     public void onCreate() {
         super.onCreate();
         Parse.enableLocalDatastore(this);
+        ParseObject.registerSubclass(Message.class);
         Parse.initialize(this, "cFWnuRjdEE2TJY7DZvjJmKMGDyBWZLpzuKDuWwN7", "r6fDFWSXCX4V9hGXS5xbvCOjEXwnUd64sKPk8c7v");
     }
 
