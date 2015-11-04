@@ -26,13 +26,14 @@ import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ChatRoom extends AppCompatActivity {
 
     private static final String TAG = ChatRoom.class.getName();
     private static String sUserId;
-
+    private String id;
     private static final int MAX_CHAT_MESSAGES_TO_SHOW = 40;
 
 
@@ -52,12 +53,13 @@ public class ChatRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
         // User login
+        if (getIntent() == null || getIntent().getExtras() == null || getIntent().getExtras().getString("id") == null) {
+            Toast.makeText(this, "User does not exist", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        id = getIntent().getExtras().getString("id");
         if (ParseUser.getCurrentUser() != null) {
             startWithCurrentUser(); // Start with current user
-        }
-        else {
-            // Jump to the login page
-            login();
         }
         handler.postDelayed(runnable, 1000);
     }
@@ -76,21 +78,7 @@ public class ChatRoom extends AppCompatActivity {
 
     private void startWithCurrentUser() {
         sUserId = ParseUser.getCurrentUser().getObjectId();
-
         setupMessagePosting();
-    }
-
-    private void login() {
-        ParseAnonymousUtils.logIn(new LogInCallback() {
-            @Override
-            public void done(ParseUser user, ParseException e) {
-                if (e != null) {
-                    Log.d(TAG, "Anonymous login failed: " + e.toString());
-                } else {
-                    startWithCurrentUser();
-                }
-            }
-        });
     }
 
     private void setupMessagePosting() {
@@ -110,7 +98,7 @@ public class ChatRoom extends AppCompatActivity {
                 Message message = new Message();
                 message.setUserId(sUserId);
                 message.setBody(body);
-
+                message.put("id", id);
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
@@ -124,12 +112,27 @@ public class ChatRoom extends AppCompatActivity {
 
     private void receiveMessage() {
         // Construct query to execute
-        ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
+        ParseQuery<Message> query1 = ParseQuery.getQuery(Message.class);
         // Configure limit and sort order
-        query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
-        query.orderByDescending("createdAt");
+        query1.whereEqualTo("id", sUserId);
+        query1.whereEqualTo("userId", id);
+        ParseQuery<Message> query2 = ParseQuery.getQuery(Message.class);
+        // Configure limit and sort order
+        query2.whereEqualTo("id", id);
+        query2.whereEqualTo("userId", sUserId);
+        List<ParseQuery<Message>> q = new LinkedList<>();
+        q.add(query1);
+        q.add(query2);
+
+        ParseQuery<Message> query = ParseQuery.or(q);
+
         // Execute query to fetch all messages from Parse asynchronously
         // This is equivalent to a SELECT query with SQL
+
+        query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
+        query.orderByDescending("createdAt");
+
+
         query.findInBackground(new FindCallback<Message>() {
             public void done(List<Message> messages, ParseException e) {
                 if (e == null) {
