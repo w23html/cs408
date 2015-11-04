@@ -57,7 +57,7 @@ public class FriendListAdapter extends BaseAdapter {
         User currentUser = getItem(pos);
         Bitmap bm;
         if (currentUser.getImage() == null) {
-            vh.avater.setImageResource(R.drawable.anon_30);
+            vh.avater.setImageResource(R.drawable.anon_54);
         } else {
             bm = BitmapFactory.decodeByteArray(currentUser.getImage(), 0, currentUser.getImage().length);
             vh.avater.setImageBitmap(bm);

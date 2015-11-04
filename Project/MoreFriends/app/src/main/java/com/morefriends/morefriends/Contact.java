@@ -8,6 +8,15 @@ public class Contact {
     String name = "";
     String lastMessage = "";
     String date = "";
+    String objectId = "";
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
 
     public Contact(String name, String lastMessage, String date){
         this.name = name;

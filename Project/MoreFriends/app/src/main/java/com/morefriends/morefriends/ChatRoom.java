@@ -58,7 +58,7 @@ public class ChatRoom extends AppCompatActivity {
             Toast.makeText(this, "User does not exist", Toast.LENGTH_SHORT).show();
             finish();
         }
-        id = getIntent().getExtras().getString("fname");
+        id = getIntent().getExtras().getString("id");
         findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +66,7 @@ public class ChatRoom extends AppCompatActivity {
             }
         });
         TextView fname = (TextView) findViewById(R.id.textView);
-        fname.setText(id);
+        fname.setText(getIntent().getExtras().getString("fname"));
         if (ParseUser.getCurrentUser() != null) {
             startWithCurrentUser(); // Start with current user
         }

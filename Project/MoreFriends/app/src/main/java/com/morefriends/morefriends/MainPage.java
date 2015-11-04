@@ -2,23 +2,12 @@ package com.morefriends.morefriends;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,7 +64,7 @@ public class MainPage extends Activity {
                             }
                         });
                     } else {
-                        iv.setImageResource(R.drawable.anon);
+                        iv.setImageResource(R.drawable.anon_54);
                     }
                     if (pu.getString("nickname") != null) {
                         fname = pu.getString("nickname");
