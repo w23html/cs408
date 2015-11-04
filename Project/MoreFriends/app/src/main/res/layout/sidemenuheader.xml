@@ -34,14 +34,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#fff"
-                android:fontFamily="Roboto Medium"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="14sp"
                 android:id="@+id/name"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="Roboto Regular"
+                android:fontFamily="sans-serif"
                 android:textSize="14sp"
                 android:textColor="#fff"
                 android:id="@+id/email"/>

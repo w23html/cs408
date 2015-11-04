@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity {
              iv.setImageResource(R.drawable.anon_54);
          }
          mLeftDrawer.addHeaderView(v);
-         mLeftDrawer.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menuItems));
+         mLeftDrawer.setAdapter(new ArrayAdapter<String>(this, R.layout.my_textview, menuItems));
          mLeftDrawer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
              @Override
              public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
