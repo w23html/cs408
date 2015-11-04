@@ -45,6 +45,8 @@ public class MainPage extends Activity {
     private TextView email;
     private TextView msg;
 
+    private String fname;
+
     public void loadUserProfile(String nn) {
         final ProgressDialog dialog = new ProgressDialog(MainPage.this);
         dialog.setIndeterminate(true);
@@ -76,8 +78,10 @@ public class MainPage extends Activity {
                         iv.setImageResource(R.drawable.anon);
                     }
                     if (pu.getString("nickname") != null) {
+                        fname = pu.getString("nickname");
                         friendname.setText(pu.getString(("nickname")));
                     } else {
+                        fname = "Invalid User";
                         friendname.setText("");
                     }
                     if (pu.getEmail() != null) {
@@ -125,6 +129,7 @@ public class MainPage extends Activity {
             public void onClick(View v) {
                 Intent i = new Intent(MainPage.this, ChatRoom.class);
                 i.putExtra("id", nn);
+                i.putExtra("fname", fname);
                 startActivity(i);
             }
         });

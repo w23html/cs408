@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -57,7 +58,15 @@ public class ChatRoom extends AppCompatActivity {
             Toast.makeText(this, "User does not exist", Toast.LENGTH_SHORT).show();
             finish();
         }
-        id = getIntent().getExtras().getString("id");
+        id = getIntent().getExtras().getString("fname");
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        TextView fname = (TextView) findViewById(R.id.textView);
+        fname.setText(id);
         if (ParseUser.getCurrentUser() != null) {
             startWithCurrentUser(); // Start with current user
         }
