@@ -31,7 +31,12 @@ public class FriendList extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_list);
-
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         currentUser = ParseUser.getCurrentUser();
         final ProgressDialog dialog = ProgressDialog.show(this, null, "Loading...");
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Friend");
