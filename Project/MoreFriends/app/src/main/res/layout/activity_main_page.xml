@@ -81,6 +81,7 @@
             android:textColor="#FFFFFF"
             android:background="@drawable/green_button"
             android:id="@+id/add_friend_button"
+            android:visibility="gone"
             android:text="Add As Friend"
             android:layout_margin="10px"
             />

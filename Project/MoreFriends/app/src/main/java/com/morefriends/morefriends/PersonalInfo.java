@@ -156,7 +156,6 @@ public class PersonalInfo extends ActionBarActivity {
         findViewById(R.id.edit_profile).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PersonalInfo.this, "Resume", Toast.LENGTH_SHORT).show();
                 //call editProfile
                 //findViewById(R.id.edit_profile).setClickable(false);
                 //findViewById(R.id.edit_profile).setEnabled(false);

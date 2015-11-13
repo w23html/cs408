@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -123,6 +124,28 @@ public class MainPage extends Activity {
             }
         });
         loadUserProfile(nn);
+
+        // Find the current user's friendlist and check if the new friend is in the list
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Friend");
+        query.whereEqualTo("me", ParseUser.getCurrentUser().getObjectId());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    boolean f = true;
+                    for (ParseObject po : objects) {
+                        if (po.getString("friend").compareTo(nn) == 0) {
+                            //findViewById(R.id.add_friend_button).setVisibility(View.INVISIBLE);
+                            f = false;
+                        }
+                    }
+                    if (f) {
+                        findViewById(R.id.add_friend_button).setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
+
         findViewById(R.id.add_friend_button).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Suppose to add the friend into the friend list

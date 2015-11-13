@@ -31,8 +31,9 @@ public class MainActivity extends FragmentActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mLeftDrawer;
     private String[] menuItems = new String[]{"My Profile", "Log Out"};
+    private CircleImageView iv;
 
-     @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -43,10 +44,10 @@ public class MainActivity extends FragmentActivity {
          ((TextView)v.findViewById(R.id.name)).setText(ParseUser.getCurrentUser().getString("nickname"));
          ((TextView)v.findViewById(R.id.email)).setText(ParseUser.getCurrentUser().getEmail());
          if (ParseUser.getCurrentUser().getBytes("image") != null) {
-             CircleImageView iv = (CircleImageView) v.findViewById(R.id.image);
+             iv = (CircleImageView) v.findViewById(R.id.image);
              iv.setImageBitmap(BitmapFactory.decodeByteArray(ParseUser.getCurrentUser().getBytes("image"), 0, ParseUser.getCurrentUser().getBytes("image").length));
          } else {
-             CircleImageView iv = (CircleImageView) v.findViewById(R.id.image);
+            iv = (CircleImageView) v.findViewById(R.id.image);
              iv.setImageResource(R.drawable.anon_54);
          }
          mLeftDrawer.addHeaderView(v);
@@ -138,6 +139,15 @@ public class MainActivity extends FragmentActivity {
                                  Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_screen_slide_page, container, false);
             return view;
+        }
+    }
+
+    public void onResume() {
+        super.onResume();
+        if (ParseUser.getCurrentUser().getBytes("image") != null) {
+            iv.setImageBitmap(BitmapFactory.decodeByteArray(ParseUser.getCurrentUser().getBytes("image"), 0, ParseUser.getCurrentUser().getBytes("image").length));
+        } else {
+            iv.setImageResource(R.drawable.anon);
         }
     }
 

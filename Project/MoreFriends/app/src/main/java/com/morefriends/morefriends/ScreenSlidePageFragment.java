@@ -30,6 +30,10 @@ public class ScreenSlidePageFragment extends Fragment {
                     int total = objects.size();
                     Random ran = new Random();
                     int idx = ran.nextInt(total);
+                    // Prevent not found user self
+                    if (objects.get(idx).getObjectId() == ParseUser.getCurrentUser().getObjectId()) {
+                        idx = (idx + 1) >= total ? 1 : idx+1;
+                    }
                     Intent i = new Intent(getActivity(), MainPage.class).putExtra("name", objects.get(idx).getObjectId());
                     startActivity(i);
                     dialog.dismiss();

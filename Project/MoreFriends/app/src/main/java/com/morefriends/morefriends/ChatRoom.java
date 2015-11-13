@@ -35,7 +35,7 @@ public class ChatRoom extends AppCompatActivity {
     private static final String TAG = ChatRoom.class.getName();
     private static String sUserId;
     private String id;
-    private static final int MAX_CHAT_MESSAGES_TO_SHOW = 40;
+    //private static final int MAX_CHAT_MESSAGES_TO_SHOW = 40;
 
 
     public static final String USER_ID_KEY = "userId";
@@ -104,6 +104,11 @@ public class ChatRoom extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String body = etMessage.getText().toString();
+                if (body.length() < 1)
+                {
+                    Toast.makeText(ChatRoom.this, "Write something!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Message message = new Message();
                 message.setUserId(sUserId);
                 message.setBody(body);
@@ -138,7 +143,7 @@ public class ChatRoom extends AppCompatActivity {
         // Execute query to fetch all messages from Parse asynchronously
         // This is equivalent to a SELECT query with SQL
 
-        query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
+        //query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
         query.orderByDescending("createdAt");
 
 

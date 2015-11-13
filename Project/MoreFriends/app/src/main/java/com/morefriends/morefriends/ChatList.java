@@ -88,15 +88,19 @@ public class ChatList extends Fragment {
                                     }
                                 }
                                 la.notifyDataSetChanged();
+                                umap.clear();
+                                map.clear();
                             } else {
                                 Toast.makeText(getActivity(), "Connection failed", Toast.LENGTH_SHORT).show();
                                 map.clear();
+                                umap.clear();
                             }
                         }
                     });
                 } else {
                     Toast.makeText(getActivity(), "Connection failed.", Toast.LENGTH_SHORT).show();
                     map.clear();
+                    umap.clear();
                 }
             }
         });
